@@ -6,7 +6,7 @@ var {
   RNRandomBytes
 } = require('react-native').NativeModules
 
-export function randomBytes (length, cb) {
+export default function randomBytes (length, cb) {
   if (!cb) throw new Error('synchronous API not supported')
 
   RNRandomBytes.randomBytes(length, function (err, base64String) {
