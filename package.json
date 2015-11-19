@@ -10,7 +10,8 @@
     "react-component",
     "react-native",
     "randomBytes",
-    "rng"
+    "rng",
+    "ios"
   ],
   "dependencies": {
     "buffer": "^3.5.2"
