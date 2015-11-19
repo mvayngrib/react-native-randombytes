@@ -1,0 +1,20 @@
+{
+  "name": "react-native-randombytes",
+  "version": "1.0.0",
+  "description": "randomBytes for react-native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-component",
+    "react-native",
+    "randomBytes",
+    "rng"
+  ],
+  "dependencies": {
+    "buffer": "^3.5.2"
+  },
+  "author": "Mark Vayngrib <mark.vayngrib@lablz.com> (http://github.com/mvayngrib)",
+  "license": "ISC"
+}
