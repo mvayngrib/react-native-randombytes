@@ -14,7 +14,8 @@
     "ios"
   ],
   "dependencies": {
-    "buffer": "^3.5.2"
+    "buffer": "^3.5.2",
+    "deasync": "^0.1.4"
   },
   "author": "Mark Vayngrib <mark.vayngrib@lablz.com> (http://github.com/mvayngrib)",
   "license": "ISC"
