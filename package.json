@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "buffer": "^3.5.2",
-    "deasync": "^0.1.4"
+    "sjcl": "^1.0.3"
   },
   "author": "Mark Vayngrib <mark.vayngrib@lablz.com> (http://github.com/mvayngrib)",
   "license": "ISC"
