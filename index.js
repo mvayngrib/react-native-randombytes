@@ -22,9 +22,7 @@ module.exports.randomBytes = function(length, cb) {
   RNRandomBytes.randomBytes(length, function(err, base64String) {
     if (err) {
       cb(err);
-    }
-
-    else {
+    } else {
       cb(null, new Buffer(base64String, 'base64'));
     }
   });
