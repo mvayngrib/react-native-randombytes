@@ -5,7 +5,8 @@ if (typeof Buffer === 'undefined') {
 var sjcl = require('sjcl');
 var sjclRandom = new sjcl.prng(10);
 
-var RNRandomBytes = require('react-native').NativeModules.RNRandomBytes;
+var explicitReq = require;
+var RNRandomBytes = explicitReq('react-native').NativeModules.RNRandomBytes;
 
 module.exports.randomBytes = function(length, cb) {
 
