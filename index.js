@@ -1,5 +1,5 @@
 if (typeof Buffer === 'undefined') {
-  global.Buffer = require('buffer').Buffer
+  global.Buffer = require('buffer').Buffer;
 }
 
 var sjcl = require('sjcl');
@@ -12,7 +12,6 @@ module.exports.randomBytes = function(length, cb) {
   if (!cb) {
     var size = length;
     var wordCount = Math.ceil(size * 0.25);
-    sjclRandom.isReady(3);
     var randomBytes = sjclRandom.randomWords(wordCount);
     var hexString = sjcl.codec.hex.fromBits(randomBytes);
     hexString = hexString.substr(0, size * 2);
@@ -22,17 +21,17 @@ module.exports.randomBytes = function(length, cb) {
 
   RNRandomBytes.randomBytes(length, function(err, base64String) {
     if (err) {
-      cb(err)
+      cb(err);
     }
 
     else {
-      cb(null, new Buffer(base64String, 'base64'))
+      cb(null, new Buffer(base64String, 'base64'));
     }
   });
 
 };
 
-module.exports.randomBytes(4096, function(err, base64String){
+module.exports.randomBytes(4096, function(err, base64String) {
   var hexString = base64String.toString('hex');
-  sjclRandom.addEntropy(hexString);
+  sjclRandom.addEntropy(hexString, 10, 'csprng');
 });
