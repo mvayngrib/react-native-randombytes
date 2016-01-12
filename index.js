@@ -29,7 +29,7 @@ module.exports.randomBytes = function(length, cb) {
 
 };
 
-module.exports.randomBytes(4096, function(err, base64String) {
-  var hexString = base64String.toString('hex');
+module.exports.randomBytes(4096, function(err, buffer) {
+  var hexString = buffer.toString('hex');
   sjclRandom.addEntropy(hexString, 10, 'csprng');
 });
