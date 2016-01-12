@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "babelify": "mkdir -p browser && ./node_modules/.bin/browserify --exclude react-native -t [ babelify --presets [ react es2015 ] ] ./index.js | sed -e 's/require/bitgoReq/g' | sed -e 's/explicitReq = bitgoReq/explicitReq = require/g' > ./browser/react_index.js"
+    "babelify": "mkdir -p browser && ./node_modules/.bin/browserify --exclude react-native -t [ babelify --presets [ react es2015 ] ] ./index.js | sed -e 's/require/bitgoReq/g' | sed -e 's/explicitReq(/require(/g' > ./browser/react_index.js"
   },
   "keywords": [
     "react-component",
