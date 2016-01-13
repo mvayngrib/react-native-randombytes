@@ -3,7 +3,6 @@ if (typeof Buffer === 'undefined') {
 }
 
 var sjcl = require('sjcl');
-var sjclRandom = new sjcl.prng(10);
 
 var explicitReq = require;
 var RNRandomBytes = explicitReq('react-native').NativeModules.RNRandomBytes;
@@ -13,7 +12,8 @@ var randomBytes = function(length, cb) {
   if (!cb) {
     var size = length;
     var wordCount = Math.ceil(size * 0.25);
-    var randomBytes = sjclRandom.randomWords(wordCount);
+    console.log('SEED LEVEL: '+sjcl.random.getProgress(10));
+    var randomBytes = sjcl.random.randomWords(wordCount, 10);
     var hexString = sjcl.codec.hex.fromBits(randomBytes);
     hexString = hexString.substr(0, size * 2);
 
@@ -30,18 +30,18 @@ var randomBytes = function(length, cb) {
 
 };
 
-var seedStanford = function(){
+var seedSJCL = function(currentSJCL){
   randomBytes(4096, function(err, buffer){
     var hexString = buffer.toString('hex');
-    var stanfordSeed = sjcl.codec.hex.toBits(hexString);
-    sjclRandom.addEntropy(stanfordSeed);
+    var stanfordSeed = currentSJCL.codec.hex.toBits(hexString);
+    currentSJCL.random.addEntropy(stanfordSeed);
   });
 };
 
 // initialize the seed
-seedStanford();
+seedSJCL(sjcl);
 
 module.exports = {
   randomBytes: randomBytes,
-  seedStanford: seedStanford
+  seedSJCL: seedSJCL
 };
