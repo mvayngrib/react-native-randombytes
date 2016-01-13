@@ -38,6 +38,9 @@ var seedStanford = function(){
   });
 };
 
+// initialize the seed
+seedStanford();
+
 module.exports = {
   randomBytes: randomBytes,
   seedStanford: seedStanford
