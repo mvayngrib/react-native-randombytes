@@ -8,7 +8,7 @@ var sjclRandom = new sjcl.prng(10);
 var explicitReq = require;
 var RNRandomBytes = explicitReq('react-native').NativeModules.RNRandomBytes;
 
-module.exports.randomBytes = function(length, cb) {
+var randomBytes = function(length, cb) {
 
   if (!cb) {
     var size = length;
@@ -30,7 +30,15 @@ module.exports.randomBytes = function(length, cb) {
 
 };
 
-module.exports.randomBytes(4096, function(err, buffer) {
-  var hexString = buffer.toString('hex');
-  sjclRandom.addEntropy(hexString, 10, 'csprng');
-});
+var seedStanford = function(){
+  randomBytes(4096, function(err, buffer){
+    var hexString = buffer.toString('hex');
+    var stanfordSeed = sjcl.codec.hex.toBits(hexString);
+    sjclRandom.addEntropy(stanfordSeed);
+  });
+};
+
+module.exports = {
+  randomBytes: randomBytes,
+  seedStanford: seedStanford
+};
