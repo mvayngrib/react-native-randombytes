@@ -1,47 +1,58 @@
 if (typeof Buffer === 'undefined') {
-  global.Buffer = require('buffer').Buffer;
+  global.Buffer = require('buffer').Buffer
 }
 
-var sjcl = require('sjcl');
+let sjcl = require('sjcl')
+let RNRandomBytes = require('react-native').NativeModules.RNRandomBytes
 
-var explicitReq = require;
-var RNRandomBytes = explicitReq('react-native').NativeModules.RNRandomBytes;
+function noop () {}
 
-var randomBytes = function(length, cb) {
+function toBuffer (nativeStr) {
+  return new Buffer(nativeStr, 'base64')
+}
 
+function init () {
+  if (RNRandomBytes.seed) {
+    let seedBuffer = toBuffer(RNRandomBytes.seed)
+    addEntropy(seedBuffer)
+  } else {
+    seedSJCL()
+  }
+}
+
+function addEntropy (entropyBuf) {
+  let hexString = entropyBuf.toString('hex')
+  let stanfordSeed = sjcl.codec.hex.toBits(hexString)
+  sjcl.random.addEntropy(stanfordSeed)
+}
+
+export function seedSJCL (cb) {
+  cb = cb || noop
+  randomBytes(4096, function (err, buffer) {
+    if (err) return cb(err)
+
+    addEntropy(buffer)
+  })
+}
+
+export function randomBytes (length, cb) {
   if (!cb) {
-    var size = length;
-    var wordCount = Math.ceil(size * 0.25);
-    console.log('SEED LEVEL: '+sjcl.random.getProgress(10));
-    var randomBytes = sjcl.random.randomWords(wordCount, 10);
-    var hexString = sjcl.codec.hex.fromBits(randomBytes);
-    hexString = hexString.substr(0, size * 2);
-
-    return new Buffer(hexString, 'hex');
+    let size = length
+    let wordCount = Math.ceil(size * 0.25)
+    let randomBytes = sjcl.random.randomWords(wordCount, 10)
+    console.log(randomBytes)
+    let hexString = sjcl.codec.hex.fromBits(randomBytes)
+    hexString = hexString.substr(0, size * 2)
+    return new Buffer(hexString, 'hex')
   }
 
   RNRandomBytes.randomBytes(length, function(err, base64String) {
     if (err) {
-      cb(err);
+      cb(err)
     } else {
-      cb(null, new Buffer(base64String, 'base64'));
+      cb(null, toBuffer(base64String))
     }
-  });
+  })
+}
 
-};
-
-var seedSJCL = function(currentSJCL){
-  randomBytes(4096, function(err, buffer){
-    var hexString = buffer.toString('hex');
-    var stanfordSeed = currentSJCL.codec.hex.toBits(hexString);
-    currentSJCL.random.addEntropy(stanfordSeed);
-  });
-};
-
-// initialize the seed
-seedSJCL(sjcl);
-
-module.exports = {
-  randomBytes: randomBytes,
-  seedSJCL: seedSJCL
-};
+init()
