@@ -4,26 +4,20 @@
   "description": "randomBytes for react-native",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "babelify": "mkdir -p browser && ./node_modules/.bin/browserify --exclude react-native -t [ babelify --presets [ react es2015 ] ] -s BitGoRandomBytes ./index.js | sed -e 's/require/bitgoReq/g' | sed -e 's/explicitReq(/require(/g' > ./browser/react_index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "react-component",
     "react-native",
     "randomBytes",
     "rng",
-    "ios"
+    "ios",
+    "android"
   ],
   "dependencies": {
     "buffer": "^3.5.2",
     "sjcl": "^1.0.3"
   },
   "author": "Mark Vayngrib <mark.vayngrib@lablz.com> (http://github.com/mvayngrib)",
-  "license": "ISC",
-  "devDependencies": {
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "babelify": "^7.2.0",
-    "browserify": "^13.0.0"
-  }
+  "license": "ISC"
 }
