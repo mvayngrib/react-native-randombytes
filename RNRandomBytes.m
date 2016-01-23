@@ -19,10 +19,21 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_METHOD(randomBytes:(NSUInteger)length
                   callback:(RCTResponseSenderBlock)callback)
 {
+    callback(@[[NSNull null], [self randomBytes:length]]);
+}
+
+- (NSString *) randomBytes:(NSUInteger)length
+{
     NSMutableData* bytes = [NSMutableData dataWithLength:length];
     SecRandomCopyBytes(kSecRandomDefault, length, [bytes mutableBytes]);
-    NSString *passphrase = [bytes base64EncodedStringWithOptions:0];
-    callback(@[[NSNull null], passphrase]);
+    return [bytes base64EncodedStringWithOptions:0];
 }
+
+- (NSDictionary *)constantsToExport
+{
+    return @{
+        @"seed": [self randomBytes:4096]
+    };
+};
 
 @end
