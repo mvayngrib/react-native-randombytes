@@ -20,7 +20,15 @@ randomBytes(4, (err, bytes) => {
 
 ## Installation
 
-### `iOS`
+### Automatic - Android / iOS (recommended)
+
+```bash
+rnpm link
+```
+
+### Manual
+
+#### `iOS`
 
 * Drag RNRandomBytes.xcodeproj from node_modules/react-native-randombytes into your XCode project.
 
@@ -29,7 +37,7 @@ randomBytes(4, (err, bytes) => {
 Confused? See an example with screenshots [here](http://facebook.github.io/react-native/docs/linking-libraries-ios.html#content)
 
 
-### `Android`
+#### `Android`
 
 * Update Gradle Settings
 
@@ -73,7 +81,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
-                .addPackage(new RandomBytesPackage()) // register react iconify package here
+                .addPackage(new RandomBytesPackage()) // register package here
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
