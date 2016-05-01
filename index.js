@@ -40,7 +40,6 @@ export function randomBytes (length, cb) {
     let size = length
     let wordCount = Math.ceil(size * 0.25)
     let randomBytes = sjcl.random.randomWords(wordCount, 10)
-    console.log(randomBytes)
     let hexString = sjcl.codec.hex.fromBits(randomBytes)
     hexString = hexString.substr(0, size * 2)
     return new Buffer(hexString, 'hex')
