@@ -46,7 +46,7 @@ Confused? See an example with screenshots [here](http://facebook.github.io/react
 ...
 
 include ':randombytes', ':app'
-project(':randombytes').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-randombytes/app')
+project(':randombytes').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-randombytes/android')
 ```
 
 * Update Gradle Build
