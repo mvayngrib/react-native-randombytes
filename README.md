@@ -2,8 +2,6 @@
 
 ## Usage
 
-Note: only the asynchronous API is supported, due to the limitations of having to go over the RCTBridge, and there being no secure RNG in JavaScriptCore (Math.random is a bit of a joke in the industry)
-
 ```js
 var randomBytes = require('react-native-randombytes')
 
