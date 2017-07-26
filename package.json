@@ -3,6 +3,10 @@
   "version": "3.0.0",
   "description": "randomBytes for react-native",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mvayngrib/react-native-randombytes.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
