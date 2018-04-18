@@ -7,11 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163CDE472087CAD3001065FB /* RNRandomBytes.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EEC93E1BFE4B1D00D468EB /* RNRandomBytes.m */; };
+		163CDE4A2087CAD3001065FB /* RNRandomBytes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73EEC93C1BFE4B1D00D468EB /* RNRandomBytes.h */; };
 		73EEC93D1BFE4B1D00D468EB /* RNRandomBytes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73EEC93C1BFE4B1D00D468EB /* RNRandomBytes.h */; };
 		73EEC93F1BFE4B1D00D468EB /* RNRandomBytes.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EEC93E1BFE4B1D00D468EB /* RNRandomBytes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		163CDE492087CAD3001065FB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				163CDE4A2087CAD3001065FB /* RNRandomBytes.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73EEC9371BFE4B1D00D468EB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -25,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		163CDE4E2087CAD3001065FB /* libRNRandomBytes-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libRNRandomBytes-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EEC9391BFE4B1D00D468EB /* libRNRandomBytes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNRandomBytes.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		73EEC93C1BFE4B1D00D468EB /* RNRandomBytes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNRandomBytes.h; sourceTree = "<group>"; };
 		73EEC93E1BFE4B1D00D468EB /* RNRandomBytes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNRandomBytes.m; sourceTree = "<group>"; };
@@ -32,6 +45,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		163CDE482087CAD3001065FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73EEC9361BFE4B1D00D468EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				73EEC9391BFE4B1D00D468EB /* libRNRandomBytes.a */,
+				163CDE4E2087CAD3001065FB /* libRNRandomBytes-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +100,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		163CDE452087CAD3001065FB /* RNRandomBytes-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 163CDE4B2087CAD3001065FB /* Build configuration list for PBXNativeTarget "RNRandomBytes-tvOS" */;
+			buildPhases = (
+				163CDE462087CAD3001065FB /* Sources */,
+				163CDE482087CAD3001065FB /* Frameworks */,
+				163CDE492087CAD3001065FB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RNRandomBytes-tvOS";
+			productName = RNRandomBytes;
+			productReference = 163CDE4E2087CAD3001065FB /* libRNRandomBytes-tvOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		73EEC9381BFE4B1D00D468EB /* RNRandomBytes */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73EEC94D1BFE4B1D00D468EB /* Build configuration list for PBXNativeTarget "RNRandomBytes" */;
@@ -123,11 +161,20 @@
 			projectRoot = "";
 			targets = (
 				73EEC9381BFE4B1D00D468EB /* RNRandomBytes */,
+				163CDE452087CAD3001065FB /* RNRandomBytes-tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		163CDE462087CAD3001065FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				163CDE472087CAD3001065FB /* RNRandomBytes.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		73EEC9351BFE4B1D00D468EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,6 +186,28 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		163CDE4C2087CAD3001065FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos11.3;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+			};
+			name = Debug;
+		};
+		163CDE4D2087CAD3001065FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos11.3;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+			};
+			name = Release;
+		};
 		73EEC94B1BFE4B1D00D468EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -235,6 +304,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Debug;
 		};
@@ -244,12 +314,22 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		163CDE4B2087CAD3001065FB /* Build configuration list for PBXNativeTarget "RNRandomBytes-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				163CDE4C2087CAD3001065FB /* Debug */,
+				163CDE4D2087CAD3001065FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		73EEC9341BFE4B1D00D468EB /* Build configuration list for PBXProject "RNRandomBytes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
