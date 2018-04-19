@@ -3,28 +3,44 @@
 ## Usage
 
 ```js
-var randomBytes = require('react-native-randombytes')
+import { randomBytes } from 'react-native-randombytes'
 
 // synchronous API
 // uses SJCL
-var rand = randomBytes(4)
+const rand = randomBytes(4)
 
 // asynchronous API
 // uses iOS-side SecRandomCopyBytes
 randomBytes(4, (err, bytes) => {
+  // bytes is a Buffer object
   console.log(bytes.toString('hex'))
 })
 ```
 
 ## Installation
 
+1. Follow the steps in the next section
+1. You have two options depending on your needs:
+    1. if you're trying to get Node.js or browser crypto modules working in React Native, follow the installation workflow in [react-native-crypto](https://github.com/tradle/react-native-crypto).
+    1. if you only need asynchronous random bytes generation, and don't care about getting back `Buffer` objects, you can do the following:
+
+    ```js
+    import { NativeModules } from 'react-native'
+    const { RNRandomBytes } = NativeModules
+    RNRandomBytes.randomBytes(32, (err, bytes) => {
+      // bytes is a base64string
+    })
+    ```
+
 ### Automatic - Android / iOS (recommended)
 
 ```bash
-rnpm link
+react-native link
 ```
 
 ### Manual
+
+If Automatic installation failed you, dry your tears and read on.
 
 #### `iOS`
 
