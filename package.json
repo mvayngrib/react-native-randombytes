@@ -19,7 +19,9 @@
     "android"
   ],
   "dependencies": {
-    "buffer": "^4.9.1",
+    "buffer": "^4.9.1"
+  },
+  "optionalDependencies": {
     "sjcl": "^1.0.3"
   },
   "author": "Mark Vayngrib <mark.vayngrib@lablz.com> (http://github.com/mvayngrib)",
