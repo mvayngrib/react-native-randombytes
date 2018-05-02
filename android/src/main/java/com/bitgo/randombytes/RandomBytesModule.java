@@ -40,6 +40,6 @@ class RandomBytesModule extends ReactContextBaseJavaModule {
     SecureRandom sr = new SecureRandom();
     byte[] output = new byte[size];
     sr.nextBytes(output);
-    return Base64.encodeToString(output, Base64.DEFAULT);
+    return Base64.encodeToString(output, Base64.NO_WRAP);
   }
 }
