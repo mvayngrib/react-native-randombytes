@@ -12,6 +12,3 @@ android {
     }
 }
 
-dependencies {
-    compile 'com.facebook.react:react-native'
-}
