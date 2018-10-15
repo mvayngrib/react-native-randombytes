@@ -39,7 +39,7 @@ namespace Random.Bytes.RNRandomBytes
                 return new Dictionary<string, object>
                 {
                     {SEED_KEY, getRandomBytes(4096)}
-                }
+                };
             }
         }
 
