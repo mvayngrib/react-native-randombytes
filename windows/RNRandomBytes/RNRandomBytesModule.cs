@@ -13,6 +13,7 @@ namespace Random.Bytes.RNRandomBytes
     /// </summary>
     class RNRandomBytesModule : NativeModuleBase
     {
+        private static string SEED_KEY = "seed";
         /// <summary>
         /// Instantiates the <see cref="RNRandomBytesModule"/>.
         /// </summary>
@@ -28,6 +29,17 @@ namespace Random.Bytes.RNRandomBytes
             get
             {
                 return "RNRandomBytes";
+            }
+        }
+
+        public override IReadOnlyDictionary<string, object> Constants
+        {
+            get
+            {
+                return new Dictionary<string, object>
+                {
+                    {SEED_KEY, getRandomBytes(4096)}
+                }
             }
         }
 
