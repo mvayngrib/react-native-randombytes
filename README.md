@@ -105,3 +105,15 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 ...
 
 ```
+
+### `Windows`
+ 
+
+```bash
+react-native link react-native-randombytes
+```
+
+Depending on your project versions and the state of RN-Windows this may not always work. If it does not, a manual installation guide can be found here:
+
+https://github.com/Microsoft/react-native-windows/blob/master/docs/LinkingLibrariesWindows.md
+
