@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage       = "https://github.com/mvayngrib/react-native-randombytes"
   s.license        = package_json["license"]
   s.author         = { package_json["author"] => package_json["author"] }
-  s.platform       = :ios, "7.0"
+  s.platforms      = { :ios => "7.0", :osx => "10.14" }
   s.source         = { :git => "#{package_json["repository"]["url"]}" }
   s.source_files   = '*.{h,m}'
   s.dependency 'React-Core'
