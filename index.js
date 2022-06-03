@@ -12,11 +12,13 @@ function toBuffer (nativeStr) {
 }
 
 function init () {
-  if (RNRandomBytes.seed) {
-    let seedBuffer = toBuffer(RNRandomBytes.seed)
-    addEntropy(seedBuffer)
-  } else {
-    seedSJCL()
+  if (RNRandomBytes) {
+    if (RNRandomBytes.seed) {
+      let seedBuffer = toBuffer(RNRandomBytes.seed)
+      addEntropy(seedBuffer)
+    } else {
+      seedSJCL()
+    }
   }
 }
 
