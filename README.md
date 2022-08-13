@@ -1,5 +1,9 @@
 # react-native-randombytes
 
+## DEPRECATED
+
+Use [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values) instead
+
 ## Usage
 
 ```js
