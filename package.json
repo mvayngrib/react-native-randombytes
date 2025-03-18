@@ -2,7 +2,7 @@
   "name": "react-native-randombytes",
   "version": "3.6.1",
   "description": "randomBytes for react-native",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/mvayngrib/react-native-randombytes.git"
@@ -19,8 +19,9 @@
     "android"
   ],
   "dependencies": {
-    "buffer": "^4.9.1",
-    "sjcl": "^1.0.3"
+    "buffer": "^6.0.3",
+    "sjcl": "^1.0.8",
+    "react-native": "0.76.5"
   },
   "author": "Mark Vayngrib <mark.vayngrib@lablz.com> (http://github.com/mvayngrib)",
   "license": "ISC"
